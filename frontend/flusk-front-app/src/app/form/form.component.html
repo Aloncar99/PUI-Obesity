@@ -1,0 +1,79 @@
+<div class="app-container">
+    <div class="card">
+        <form [formGroup]="bmiForm" (ngSubmit)="submitForm()">
+            <div class="grid">
+                <!-- Numeric Inputs -->
+                <div class="col-6">
+                    <label>Age <i class="pi pi-info-circle" pTooltip="Age in years"></i></label>
+                    <input pInputText type="text" formControlName="Age" class="w-full">
+                </div>
+                <div class="col-6">
+                    <label>Height (m) <i class="pi pi-info-circle" pTooltip="Height in metres"></i></label>
+                    <input pInputText type="text" formControlName="Height" class="w-full">
+                </div>
+                <div class="col-6">
+                    <label>FCVC <i class="pi pi-info-circle" pTooltip="Frequency of vegetable consumption"></i></label>
+                    <input pInputText type="text" formControlName="FCVC" class="w-full">
+                </div>
+                <div class="col-6">
+                    <label>NCP <i class="pi pi-info-circle" pTooltip="Number of main meals daily"></i></label>
+                    <input pInputText type="text" formControlName="NCP" class="w-full">
+                </div>
+                <div class="col-6">
+                    <label>CH2O <i class="pi pi-info-circle" pTooltip="Daily water intake (litres)"></i></label>
+                    <input pInputText type="text" formControlName="CH2O" class="w-full">
+                </div>
+                <div class="col-6">
+                    <label>FAF <i class="pi pi-info-circle" pTooltip="Physical activity frequency"></i></label>
+                    <input pInputText type="text" formControlName="FAF" class="w-full">
+                </div>
+                <div class="col-6">
+                    <label>TUE <i class="pi pi-info-circle" pTooltip="Time using technology (hours)"></i></label>
+                    <input pInputText type="text" formControlName="TUE" class="w-full">
+                </div>
+
+                <!-- Dropdown Inputs -->
+                <div class="col-6">
+                    <label>Gender</label>
+                    <p-dropdown [options]="genderOptions" formControlName="Gender" class="w-full"></p-dropdown>
+                </div>
+                <div class="col-6">
+                    <label>Family History</label>
+                    <p-dropdown [options]="yesNoOptions" formControlName="family_history" class="w-full"></p-dropdown>
+                </div>
+                <div class="col-6">
+                    <label>Frequent High-Calorie Food</label>
+                    <p-dropdown [options]="yesNoOptions" formControlName="FAVC" class="w-full"></p-dropdown>
+                </div>
+                <div class="col-6">
+                    <label>Eating Between Meals (CAEC)</label>
+                    <p-dropdown [options]="caecOptions" formControlName="CAEC" class="w-full"></p-dropdown>
+                </div>
+                <div class="col-6">
+                    <label>Do you smoke?</label>
+                    <p-dropdown [options]="yesNoOptions" formControlName="SMOKE" class="w-full"></p-dropdown>
+                </div>
+                <div class="col-6">
+                    <label>Monitor Calories Daily</label>
+                    <p-dropdown [options]="yesNoOptions" formControlName="SCC" class="w-full"></p-dropdown>
+                </div>
+                <div class="col-6">
+                    <label>Alcohol Consumption (CALC)</label>
+                    <p-dropdown [options]="calcOptions" formControlName="CALC" class="w-full"></p-dropdown>
+                </div>
+                <div class="col-6">
+                    <label>Transportation</label>
+                    <p-dropdown [options]="mtransOptions" formControlName="MTRANS" class="w-full"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <button pButton type="submit" label="Predict BMI" class="w-full"></button>
+            </div>
+        </form>
+
+        <div *ngIf="predictedBMI" class="mt-4">
+            <p class="text-lg font-bold">Predicted BMI: {{ predictedBMI | number:'1.2-2' }}</p>
+        </div>
+    </div>
+</div>

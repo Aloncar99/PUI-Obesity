@@ -1,0 +1,35 @@
+@import 'primeflex/primeflex.css';
+@import 'primeicons/primeicons.css';
+
+/* Dodajmo neki osnovni centrirani layout */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: var(--font-family);
+    background-color: var(--surface-ground);
+}
+
+.app-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.card {
+    width: 100%;
+    max-width: 900px;
+    padding: 2rem;
+}
+
+
+/* U styles.css */
+p-dropdown, p-inputtext {
+  width: 100%;
+}
+
+.grid .col-6 {
+  padding: 0.5rem;
+}
